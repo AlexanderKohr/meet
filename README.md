@@ -1,4 +1,9 @@
 # meet
+**meet** is a serverless, progressive web application (PWA) built with React using a
+test-driven development (TDD) technique. The application uses the Google
+Calendar API to fetch upcoming events.
+
+## KEY FEATURES
 
 ### FEATURE 1: FILTER EVENTS BY CITY
 **User Story:** As a user, I would like to be able to filter events by city so that I can see the list of events that
