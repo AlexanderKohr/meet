@@ -26,7 +26,7 @@ describe('<Event /> component', () => {
         expect(EventWrapper.state('collapsed')).toBe(true);
     });
 
-    test('render show details button', () => {
+    test('render show/hide details button', () => {
         expect(EventWrapper.find('.show-details')).toHaveLength(1);
     });
 
