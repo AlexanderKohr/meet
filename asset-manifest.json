@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/AlexanderKohr/meet.git/static/css/main.073c9b0a.css",
-    "main.js": "/AlexanderKohr/meet.git/static/js/main.23fcce15.js",
+    "main.css": "/AlexanderKohr/meet.git/static/css/main.ccbfce6c.css",
+    "main.js": "/AlexanderKohr/meet.git/static/js/main.35c5625c.js",
     "static/js/377.dda790c9.chunk.js": "/AlexanderKohr/meet.git/static/js/377.dda790c9.chunk.js",
     "service-worker.js": "/AlexanderKohr/meet.git/service-worker.js",
     "index.html": "/AlexanderKohr/meet.git/index.html",
-    "main.073c9b0a.css.map": "/AlexanderKohr/meet.git/static/css/main.073c9b0a.css.map",
-    "main.23fcce15.js.map": "/AlexanderKohr/meet.git/static/js/main.23fcce15.js.map",
+    "main.ccbfce6c.css.map": "/AlexanderKohr/meet.git/static/css/main.ccbfce6c.css.map",
+    "main.35c5625c.js.map": "/AlexanderKohr/meet.git/static/js/main.35c5625c.js.map",
     "377.dda790c9.chunk.js.map": "/AlexanderKohr/meet.git/static/js/377.dda790c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.23fcce15.js"
+    "static/css/main.ccbfce6c.css",
+    "static/js/main.35c5625c.js"
   ]
 }
