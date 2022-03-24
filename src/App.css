@@ -120,6 +120,10 @@ input[type="number"] {
   text-align: center;
 }
 
+.inputNumberOfEvents {
+  width: 70px;
+}
+
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
