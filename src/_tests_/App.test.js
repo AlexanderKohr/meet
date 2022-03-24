@@ -1,10 +1,12 @@
 import React from "react";
-import { shallow, mount } from 'enzyme';
 import App from "../App";
 import EventList from '../EventList'
 import CitySearch from "../CitySearch";
+import NumberOfEvents from '../NumberOfEvents';
+import { shallow, mount } from 'enzyme';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
+
 
 
 describe('<App /> component', () => {
@@ -60,6 +62,14 @@ describe('<App /> integration', () => {
         await suggestionItems.at(suggestionItems.length - 1).simulate('click');
         const allEvents = await getEvents();
         expect(AppWrapper.state('events')).toEqual(allEvents);
+        AppWrapper.unmount();
+    });
+
+    test('passing number of events', () => {
+        const AppWrapper = mount(<App />);
+        const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+        expect(AppNumberOfEventsState).not.toEqual(undefined);
+        expect(AppWrapper.find(EventList).props().numberOfEvents).toEqual(32);
         AppWrapper.unmount();
     });
 });

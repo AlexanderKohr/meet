@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
     state = {
-        numberOfEvents: 32,
-        eventCount: 32
+        numberOfEvents: 18,
     }
 
-    handleInputOnChange = (eventCount) => {
-        this.props.updateEvents(eventCount)
-    }
+    handleInputChanged = (event) => {
+        const number = event.target.value;
+        if (number <= 0 || number > 18) {
+          this.setState({
+            message: "Enter number between 1 and 18",
+          });
+        } else {
+          this.setState({
+            numberOfEvents: number,
+            message: "",
+          });
+        }
+      };
 
     render () {
-        const { eventCount } = this.state;
 
         return (
             <div className='numberOfEvents'>
@@ -19,7 +27,7 @@ class NumberOfEvents extends Component {
                 type='number'
                 className='inputNumberOfEvents'
                 onChange={this.handleInputOnChange}
-                value={eventCount}
+                value={this.state.numberOfEvents}
                 />
             </div>
         )
