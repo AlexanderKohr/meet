@@ -29,13 +29,14 @@ class CitySearch extends Component {
     }
 
     render () {
+        const { query } = this.state;
         return (
             <div className='CitySearch'>
                 <input
                     type='text'
                     className='city'
                     placeholder='Search for a city'
-                    value={this.state.query}
+                    value={query}
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
                 />
