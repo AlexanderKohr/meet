@@ -15,7 +15,7 @@ class Event extends Component {
     render () {
 
         const { event } = this.props;
-        const { collapsed } = this.props;
+        const { collapsed } = this.state;
         return (
         <div className="event">
         <h2 className="summary">{event.summary}</h2>
