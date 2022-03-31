@@ -132,9 +132,16 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
-  position: fixed;
-  top: 20px;
+.CitySearchAlert {
+  font-size: 12px;
+  color: blue;
+  margin: auto;
+}
+
+.numberOfEventsAlert {
+  font-size: 12px;
+  color: red;
+  margin: auto;
 }
 
 .data-vis-wrapper {
