@@ -1,7 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+:root {
+  --background-color: #adb5bd;
+  --border-color: #343a40;
+  --headline-color: #7bf1a8;
+}
+
 .App {
+  font-family: 'Roboto';
   text-align: center;
-  padding: 2% 5%;
+  background-color: var(--background-color);
 }
 
 .App * {
@@ -24,16 +30,62 @@ p {
   display: block;
 }
 
+.meet-logo-wrapper {
+  text-align: left;
+  padding-left: 75px;
+  padding-top: 20px;
+  position: fixed;
+}
+
+.meet-logo {
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--border-color);
+  font-size: 50px;
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.meet-logo:hover{
+  color: white;
+  transform: scale(1.2);
+  text-shadow: 10px 10px 2px var(--border-color);
+}
+
+.search-wrapper {
+  width: 50vw;
+  min-width: 350px;
+  margin: 0 auto;
+  padding: 100px 20px 20px 20px;
+}
+
+::placeholder {
+  color: var(--border-color);
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 0.4rem solid var(--border-color);
   font-size: 14px;
   line-height: 20px;
   align-self: center;
   height: 38px;
+  margin: 1em;
+  box-shadow: 10px 10px 2px var(--border-color);
+  color: var(--border-color);
+}
+
+.citysearch-label {
+  margin: 3em 0 0;
+}
+
+.numbersearch-label {
+  margin: 1em 0 0;
+  color: #fff;
+  
 }
 
 .city {
@@ -54,17 +106,24 @@ input[type="number"] {
   position: absolute;
   z-index: 2;
   align-self: center;
-  margin: 0;
-  top: 43px;
+  top: 128px;
   font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 16px -12px white;
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: white;
   cursor: default;
+  border: 0.4rem solid var(--border-color);
+  
+}
+
+.suggestions > li:hover {
+  transition: transform 0.5s;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .suggestions > li:last-child {
@@ -73,26 +132,34 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: white;
+  
 }
 
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  /* border: 1px solid #ccc;
+  /* border-radius: 4px; */
   position: relative;
 }
 
+.event-card {
+  box-shadow: 10px 10px 2px var(--border-color);
+  border: 0.4rem solid var(--border-color);
+}
+
 .details-button {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
+  color: white;
+  background-color: var(--border-color);
+  border: none;
+}
+
+.details-button:hover {
+  color: var(--border-color);
+  background-color: white;
+  border: 1px solid var(--border-color);
 }
 
 .name {
@@ -120,10 +187,6 @@ input[type="number"] {
   text-align: center;
 }
 
-.inputNumberOfEvents {
-  width: 70px;
-}
-
 .button-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -132,16 +195,22 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.CitySearchAlert {
-  font-size: 12px;
-  color: blue;
-  margin: auto;
+.Alert {
+  /* position: absolute; */
+  left: 5%;
 }
 
-.numberOfEventsAlert {
-  font-size: 12px;
-  color: red;
-  margin: auto;
+.data-vis-head {
+  margin: 10px 10px;
+}
+
+.data-vis {
+  margin: 3rem 5vw;
+  background-color: white;
+  border-radius: 4px;
+  border: 0.4rem solid var(--border-color);
+  box-shadow: 10px 10px 2px var(--border-color);
+
 }
 
 .data-vis-wrapper {
@@ -149,12 +218,16 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
+
 .data-vis-wrapper .recharts-responsive-container {
-  min-width: 100%;
+  
   display: flex;
+  
 }
+
 .recharts-surface {
   overflow: visible;
+  /* margin-left: 9em; */
 }
 
 .login-button {
@@ -178,12 +251,15 @@ input[type="number"] {
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 }
+
 .google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
 }
+
 .google-btn:active {
   background: #1669f2;
 }
+
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
@@ -193,6 +269,7 @@ input[type="number"] {
   border-radius: 2px;
   background-color: #fff;
 }
+
 .google-icon {
   position: absolute;
   margin-top: 11px;
@@ -200,6 +277,7 @@ input[type="number"] {
   width: 18px;
   height: 18px;
 }
+
 .btn-text {
   float: right;
   margin: 11px 11px 0 0;
@@ -221,4 +299,69 @@ input[type="number"] {
     min-width: auto;
     margin: 0 auto;
   }
+}
+
+@media only screen and (min-width: 450px) {
+  .meet-logo-wrapper {
+    text-align: center;
+    padding-top: 20px;
+    position: fixed;
+  }
+  .meet-logo {
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--border-color);
+    font-size: 50px;
+    font-weight: 900;
+    transition: 0.5s;
+  }
+}
+
+button {
+  margin: 1.2em 0 0;
+}
+
+.event-htmlLink {
+color: #F8DB5C;
+font-weight: 500;
+text-decoration: underline;
+}
+
+.event-htmlLink:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.welcome-card {
+  display: flex;
+  align-items: center;
+  height: 35em;
+  justify-content: center;
+  }
+
+.navbar {
+  border: 0.4rem solid var(--border-color);
+  box-shadow: 10px 10px 2px var(--border-color);
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-light .navbar-brand {
+    color: var(--border-color);
+    font-weight: 700;
+    font-size: 50px;
+    background-color: transparent;
+    transition: transform 0.5s;
+}
+
+.navbar-light .navbar-brand:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+.navbar-light .navbar-brand:focus {
+  color: var(--border-color);
 }
