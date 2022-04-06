@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NumberOfEvents from './NumberOfEvents';
-import { InfoAlert } from './Alert'; 
+import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
     state = {
@@ -46,6 +46,8 @@ class CitySearch extends Component {
                 <div className='CitySearchAlert'>
                 <InfoAlert text={this.state.infoText} />
                 </div>
+                <form>
+                    <label className='citysearch-label'>Search for your nearest city</label>
                 <input
                     type='text'
                     className='city'
@@ -54,6 +56,7 @@ class CitySearch extends Component {
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
                 />
+                </form>
                 
                 <ul className='suggestions'
                     style={this.state.showSuggestions ? {}: { display: 'none' }}
