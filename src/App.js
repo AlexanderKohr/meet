@@ -7,12 +7,16 @@ import EventList from './EventList';
 import NumberOfEvents from './NumberOfEvents';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import EventGenre from './EventGenre';
+import { Col, Container, Row, Nav, Navbar } from "react-bootstrap";
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    currentLocation: 'all',
     showWelcomeScreen: undefined
   }
 
@@ -82,18 +86,69 @@ class App extends Component {
     });
   };
 
-  render() {
-    if (this.state.showWelcomeScreen === undefined)
-      return <div className='App' />
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length;
+      const city = location.split(', ').shift();
+      return { city, number };
+    })
+    return data;
+  };
 
+  render() {
+    if (this.state.showWelcomeScreen === undefined) return <div className='App' />
+    const { events, locations, numberOfEvents, offlineText } = this.state;
     return (
       <div className='App'>
-        <OfflineAlert text={this.state.offlineText} />
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} 
+        <div className='meet-logo-wrapper'>
+          <a href='#top' className='meet-logo'>meet</a>
+        </div>
+
+        <div className='search-wrapper'>
+        
+        <CitySearch locations={locations} updateEvents={this.updateEvents}/>
+
+        
+        <NumberOfEvents numberOfEvents={numberOfEvents} 
             updateNumberOfEvents={this.updateNumberOfEvents}/>
-        <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents}/>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={()=> { getAccessToken() }} />
+        </div>
+
+        <div className='data-vis'>
+        <h4 className='data-vis-head'>Events in each city</h4>
+        <div className='data-vis-wrapper'>
+        <EventGenre events={events} />
+        <ResponsiveContainer height={400}>
+        <ScatterChart margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
+            <CartesianGrid />
+            <XAxis type="category" dataKey="city" name="City" />
+            <YAxis 
+              allowDecimals={false}
+              type="number" 
+              dataKey="number" 
+              name="Number of events" />
+            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+            <Scatter data={this.getData()} fill="#76c893" />
+        </ScatterChart>
+        </ResponsiveContainer>
+        </div>
+        </div>
+
+        <Container fluid>
+        <Row className='justify-content-md-center'>
+        <Col xs={12} md={6} xl={6}>
+        <EventList events={events}/>
+        </Col>
+        </Row>
+        </Container>
+
+        <OfflineAlert text={offlineText} />
+
+        {/*<WelcomeScreen 
+          showWelcomeScreen={this.state.showWelcomeScreen} 
+          getAccessToken={()=> { getAccessToken() }} 
+    /> */}
+
       </div>
     );
   }
