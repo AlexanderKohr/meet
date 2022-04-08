@@ -40,8 +40,8 @@ class Event extends Component {
                           this.state.collapsed ? "hide" : "show"
                           }`}
                         >
-                          <Card.Title>About the event:</Card.Title>
-                          <a href={event.htmlLink} rel="noreferrer" target="_blank">
+                          <Card.Title className='card-title'>About the event:</Card.Title>
+                          <a className='event-link' href={event.htmlLink} rel="noreferrer" target="_blank">
                           See details on Google Calendar
                           </a>
                           <p className="event-description">{event.description}</p>
