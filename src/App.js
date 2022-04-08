@@ -9,7 +9,7 @@ import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import EventGenre from './EventGenre';
-import { Col, Container, Row, Nav, Navbar } from "react-bootstrap";
+import { Col, Container, Row, Navbar } from "react-bootstrap";
 
 class App extends Component {
   state = {
@@ -151,10 +151,10 @@ class App extends Component {
 
         <OfflineAlert text={offlineText} />
 
-        {/*<WelcomeScreen 
+        <WelcomeScreen 
           showWelcomeScreen={this.state.showWelcomeScreen} 
           getAccessToken={()=> { getAccessToken() }} 
-    />*/}
+        />
 
       </div>
     );
