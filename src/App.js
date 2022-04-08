@@ -101,9 +101,16 @@ class App extends Component {
     const { events, locations, numberOfEvents, offlineText } = this.state;
     return (
       <div className='App'>
-        <div className='meet-logo-wrapper'>
-          <a href='#top' className='meet-logo'>meet</a>
-        </div>
+
+      <Navbar fixed='top' bg="light" expand="lg">
+        <Container className='navbar-brand-wrapper'>
+          <ul class='navbar-nav mx-auto'>
+            <li>
+              <a className='navbar-brand' href="#top">meet</a>
+            </li>
+          </ul>
+        </Container>
+    </Navbar>
 
         <div className='search-wrapper'>
         
@@ -147,7 +154,7 @@ class App extends Component {
         {/*<WelcomeScreen 
           showWelcomeScreen={this.state.showWelcomeScreen} 
           getAccessToken={()=> { getAccessToken() }} 
-    /> */}
+    />*/}
 
       </div>
     );
